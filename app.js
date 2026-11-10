@@ -503,7 +503,20 @@ class MoffysApp {
       }
     };
 
+    const drawerFounderBtn = document.getElementById('btn-drawer-founder');
+    const footerFounderBtn = document.getElementById('btn-footer-founder');
+    const mobileDrawer = document.getElementById('mobile-menu-drawer');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+
     if (triggerBtn) triggerBtn.onclick = openFounderModal;
+    if (footerFounderBtn) footerFounderBtn.onclick = openFounderModal;
+    if (drawerFounderBtn) {
+      drawerFounderBtn.onclick = () => {
+        if (mobileDrawer) mobileDrawer.classList.remove('active');
+        if (mobileOverlay) mobileOverlay.classList.remove('active');
+        openFounderModal();
+      };
+    }
     if (closeBtn) closeBtn.onclick = closeFounderModal;
     if (backdrop) backdrop.onclick = closeFounderModal;
 
